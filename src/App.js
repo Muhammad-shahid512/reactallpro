@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Firstnotes from './components/Firstnotes'
+import Homepage from './components/FirstProject/Homepage'
+import index from './components/BlubProject/Bulb'
+import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import Homepage2 from './components/BlubProject/Homepage2'
+import ColorHome from './components/ColorChanger/ColorHome'
+import CardParking from './components/CardParking/CardParking'
+import HomePageBlog from './components/Blogweb/HomePageBlog'
+import ProductDetail from './components/Blogweb/ProductDetail'
+import Booking from './components/Blogweb/Booking'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div>
+<Homepage></Homepage>
+<Homepage2></Homepage2>
+<ColorHome></ColorHome>
+<CardParking></CardParking>
+<BrowserRouter>
+<Routes>
+<Route path='/' element={<HomePageBlog></HomePageBlog>}></Route>
+<Route path='/Product/:id' element={<ProductDetail></ProductDetail>}></Route>
+<Route path='/Booking/:name' element={<Booking></Booking>}></Route>
+</Routes>
 
-export default App;
+</BrowserRouter>
+</div>
+  )
+}
